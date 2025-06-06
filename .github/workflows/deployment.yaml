@@ -1,0 +1,28 @@
+name: GitHub Actions Demo - Class 03.03 IC/CD with GitHub Actions - Manejo de Secrets & Variables
+run-name: ${{ github.actor }} is testing out GitHub Actions for CI/CD - Class 03-03 🚀
+
+on:
+  push:
+    branches: [main]
+jobs:
+  job-01:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Run job 01 - IC/CD - Production Data
+        run: |
+          echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          echo "This is job 01, running on ${{ runner.os }}."
+          echo "Doing the IC part of the CI/CD process."
+          echo "The secrets.SEC_PROD is ${{ secrets.SEC_PROD }}."
+          echo "The vars.VAR_PROD is ${{ vars.VAR_PROD }}."
+  job-02:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run job 02 - IC/CD - General Data
+        run: |
+          echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          echo "This is job 02, running on ${{ runner.os }}."
+          echo "Doing the IC part of the CI/CD process."
+          echo "The secrets.SEC_GENERAL is ${{ secrets.SEC_GENERAL }}."
+          echo "The vars.VAR_GENERAL is ${{ vars.VAR_GENERAL }}."
